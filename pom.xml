@@ -1,24 +1,62 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>cn.wensiqun</groupId>
-	<artifactId>hammer</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.wensiqun</groupId>
+    <artifactId>hammer</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>hammer-reflect</module>
+        <module>hammer-collections</module>
+        <module>hammer-commons</module>
     </modules>
     <packaging>pom</packaging>
-	<name>hammer</name>
-	<scm>
-		<connection>scm:git:git@github.com:wensiqun/hammer.git</connection>
-		<developerConnection>scm:git:git@github.com:wensiqun/hammer.git</developerConnection>
-		<url>git@github.com:wensiqun/hammer.git</url>
-		<tag>HEAD</tag>
-	</scm>
-	<developers>
-		<developer>
-			<id>wensiqun</id>
-			<name>joe.wen</name>
-			<email>wensiqun at 163.com</email>
-		</developer>
-	</developers>
+    <name>hammer</name>
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+    <scm>
+        <connection>scm:git:git@github.com:wensiqun/hammer.git</connection>
+        <developerConnection>scm:git:git@github.com:wensiqun/hammer.git</developerConnection>
+        <url>git@github.com:wensiqun/hammer.git</url>
+        <tag>HEAD</tag>
+    </scm>
+    <developers>
+        <developer>
+            <id>wensiqun</id>
+            <name>joe.wen</name>
+            <email>wensiqun at 163.com</email>
+        </developer>
+    </developers>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>3.0.1</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.32</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
 </project>
