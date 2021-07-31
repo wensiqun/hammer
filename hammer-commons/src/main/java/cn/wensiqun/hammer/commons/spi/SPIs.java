@@ -41,6 +41,14 @@ public class SPIs {
         }
     }
 
+    /**
+     * Some time, only one implement allows in classpath runtime.
+     *
+     * @param spi
+     * @param <T>
+     * @return
+     * @throws SpiException exception if number of implements more than 1 or empty.
+     */
     @Nonnull
     public static <T extends SPI> T getOnly(@Nonnull Class<T> spi) throws SpiException {
         List<T> spis = get(spi, false);
@@ -53,6 +61,15 @@ public class SPIs {
         return spis.get(0);
     }
 
+    /**
+     * Same to {@link #getOnly(Class) }, return null if not found any implement.
+     *
+     * @param spi
+     * @param <T>
+     * @return
+     * @throws SpiException
+     * @see #getOnly(Class)
+     */
     @Nullable
     public static <T extends SPI> T getOnlyOrNull(@Nonnull Class<T> spi) throws SpiException {
         List<T> spis = get(spi, false);
@@ -65,11 +82,24 @@ public class SPIs {
         return spis.get(0);
     }
 
+    /**
+     * Get all implements according spi class.
+     * @param spi
+     * @param <T>
+     * @return
+     */
     @Nonnull
     public static <T extends SPI> List<T> get(@Nonnull Class<T> spi) {
         return get(spi, false);
     }
 
+    /**
+     * Get all implements according spi class.
+     * @param spi
+     * @param allowDuplicated allow duplicated implement
+     * @param <T>
+     * @return
+     */
     @Nonnull
     public static <T extends SPI> List<T> get(@Nonnull Class<T> spi, boolean allowDuplicated) {
         List<ProviderAndClassloader<T>> providerAndClassloaders = new ArrayList<>();
